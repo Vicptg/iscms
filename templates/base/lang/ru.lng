@@ -1,0 +1,55 @@
+{
+
+	"title" : "",
+	"icon" : "",
+	"slogan" : "",
+
+	"menu" : {
+		"home" : "Главная"
+	},
+
+	"names" : {
+	},
+	
+	"information" : {
+		
+		"version" : "версия 1.0",
+		"created" : "сайт создан студией &laquo;&raquo;",
+		"company" : "&copy; 2015, студия &laquo;&raquo;",
+		"description" : "© 2018 Все права защищены.",
+		"partners" : "Наши партнеры",
+		
+		"email" : [""],
+		"phone" : ["Телефон горячей линии:", "8 800 77-000-00"],
+		"postcode" : "",
+		"country" : "",
+		"state" : "",
+		"city" : "",
+		"street" : "",
+		"address" : "г. Пятигорск, 2-й км Георгиевского шоссе, район рынка «Лира»"
+		
+	},
+
+	"social" : {
+		"vk" : [""],
+		"odnoklassniki" : [""],
+		"facebook" : [""],
+		"instagram" : [""],
+		"telegram" : [""],
+		"whatsapp" : [""],
+		"viber" : [""],
+		"skype" : [""],
+		"twitter" : [""],
+		"twitch" : [""],
+		"blogger" : [""],
+		"youtube" : [""],
+		"linkedin" : [""],
+		"pinterest" : [""],
+		"tumblr" : [""],
+		"flickr" : [""],
+		"foursquare" : [""],
+		"reddit" : [""],
+		"google-plus" : [""]
+	}
+
+}

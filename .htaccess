@@ -1,0 +1,53 @@
+# назначаем кодировку по-умолчанию
+AddDefaultCharset UTF-8
+
+# запрещаем индексировать папки
+Options -Indexes
+
+ErrorDocument 400 /index.php?error=400
+ErrorDocument 401 /index.php?error=401
+ErrorDocument 403 /index.php?error=403
+ErrorDocument 404 /index.php?error=404
+ErrorDocument 500 /index.php?error=500
+ErrorDocument 502 /index.php?error=502
+ErrorDocument 504 /index.php?error=504
+
+# запрещаем передавать идентификатор сессии,
+# кроме как через куки
+php_flag session.use_only_cookies on
+
+# управление сессией на основе URL
+# имеет дополнительные риски безопасности
+# по сравнению с управлением на основе cookies
+# поэтому отключаем
+php_flag session.use_trans_sid off
+
+# назначение кодировки по-умолчанию для различных процессов
+php_value default_charset UTF-8
+
+# задаем имя идентификатора сессии по-умолчанию
+php_value session.name "SID"
+
+# вывод ошибок, рекомендуется включать только на время разработки
+#php_value error_reporting E_ALL & E_STRICT
+#php_value display_errors 1
+
+# настройки для работы SEF
+
+RewriteEngine on
+
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php/$1
+
+# запрет на вызов файлов, кроме index.php
+
+<FilesMatch "\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+<FilesMatch "index\.php$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

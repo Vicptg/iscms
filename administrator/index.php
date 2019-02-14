@@ -1,0 +1,1 @@
+<?php define('isADMIN', 1); require_once '..' . DIRECTORY_SEPARATOR . 'index.php'; ?>

@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif');
+body {
+	margin: 0;
+	padding: 0;
+}
+div {
+	display: block;
+	padding: 20px 0;
+	margin: 25% auto 0 auto;
+	background: #eee;
+}
+div p {
+	width: 50%;
+	font: 400 24px 'PT Serif', serif;
+	margin: auto;
+	padding: 10px 0;
+}
+@media (min-width: 1200px) { div { transform: translateY(-50%); } }
+@media (max-width: 1199px) { div p { width: 75%; font-size: 18px; } }
+@media (max-width: 767px) { div p { width: 90%; font-size: 12px; } }

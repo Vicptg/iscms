@@ -1,0 +1,55 @@
+{
+
+	"title" : "",
+	"icon" : "",
+	"slogan" : "",
+
+	"menu" : {
+		"home" : "Home"
+	},
+
+	"names" : {
+	},
+
+	"information" : {
+		
+		"version" : "Version",
+		"created" : "Created by",
+		"company" : "&copy; 2017, LLC &laquo;Company&raquo;",
+		"description" : "All rights reserved",
+		"partners" : "Our partners",
+		
+		"email" : [""],
+		"phone" : [""],
+		"postcode" : "",
+		"country" : "",
+		"state" : "",
+		"city" : "",
+		"street" : "",
+		"address" : ""
+		
+	},
+
+	"social" : {
+		"vk" : [""],
+		"odnoklassniki" : [""],
+		"facebook" : [""],
+		"instagram" : [""],
+		"telegram" : [""],
+		"whatsapp" : [""],
+		"viber" : [""],
+		"skype" : [""],
+		"twitter" : [""],
+		"twitch" : [""],
+		"blogger" : [""],
+		"youtube" : [""],
+		"linkedin" : [""],
+		"pinterest" : [""],
+		"tumblr" : [""],
+		"flickr" : [""],
+		"foursquare" : [""],
+		"reddit" : [""],
+		"google-plus" : [""]
+	}
+
+}

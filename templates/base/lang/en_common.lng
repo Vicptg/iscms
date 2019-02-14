@@ -1,0 +1,157 @@
+{
+
+	"datetime" : {
+		"format" : "{mm}/{dd}/{yy} {h}:{ii}",
+		"firstday" : 7,
+		"add" : ["th", "st", "nd", "rd"],
+		"M" : [
+			"", "Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+		],
+		"MM" : [
+			"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+		],
+		"W" : [
+			"", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+		],
+		"WW" : [
+			"", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+		],
+		"s" : "s",
+		"sec" : "sec",
+		"second" : "second",
+		"m" : "m",
+		"min" : "min",
+		"minute" : "minute",
+		"h" : "h",
+		"hour" : "hour",
+		"d" : "d",
+		"day" : "day",
+		"w" : "w",
+		"week" : "week",
+		"mon" : "mon",
+		"month" : "month",
+		"y" : "y",
+		"year" : "year",
+		"date" : "date",
+		"time" : "time"
+	},
+	
+	"counter" : {
+		"split" : [", ", " and "],
+		"bit" : " ",
+		"dec" : ".",
+		"0" : "zero"
+		"1" : "one",
+		"2" : "two",
+		"3" : "three",
+		"4" : "four",
+		"5" : "five",
+		"6" : "six",
+		"7" : "seven",
+		"8" : "eight",
+		"9" : "nine",
+		"10" : "ten",
+		"11" : "eleven",
+		"12" : "twelve",
+		"13" : "thirteen",
+		"14" : "fourteen",
+		"15" : "fifteen",
+		"16" : "sixteen",
+		"17" : "seventeen",
+		"18" : "eighteen",
+		"19" : "nineteen",
+		"20" : "twenty",
+		"30" : "thirty",
+		"40" : "forty",
+		"50" : "fifty",
+		"60" : "sixty",
+		"70" : "seventy",
+		"80" : "eighty",
+		"90" : "ninety",
+		"100" : "one hundred",
+		"200" : "two hundred",
+		"300" : "three hundred",
+		"400" : "four hundred",
+		"500" : "five hundred",
+		"600" : "six hundred",
+		"700" : "seven hundred",
+		"800" : "eight hundred",
+		"900" : "nine hundred",
+		"1000" : "thousand",
+		"1000000" : "million"
+	},
+
+	"currency" : {
+		"rub" : ["ruble", "rub.", "after"],
+		"usd" : ["dollar", "$", "before"],
+		"eur" : ["euro", "€", "after"]
+	},
+
+	"phone" : {
+		"format" : "+x (XXX) xxx–xx–xx",
+		"default" : "7879300000"
+	},
+
+	"langs" : {
+		"ru" : "Russian",
+		"en" : "English"
+	},
+
+	"action" : {
+		"ok" : "OK",
+		"cancel" : "Cancel",
+		"create" : "Create new",
+		"delete" : "Delete",
+		"upload" : "Upload",
+		"download" : "Download",
+		"open" : "Open",
+		"close" : "Close",
+		"enter" : "Enter",
+		"exit" : "Exit",
+		"register" : "Register",
+		"edit" : "Change",
+		"prolong" : "Prolong",
+		"confirm" : "Confirm",
+		"send" : "Send",
+		"submit" : "Submit",
+		"set" : "Set",
+		"reset" : "Reset",
+		"clear" : "Clear",
+		"prev" : "Prev",
+		"next" : "Next",
+		"first" : "First",
+		"last" : "Last",
+		"forward" : "forward",
+		"back" : "back",
+		"return" : "Return",
+		"all" : "all",
+		"readmore" : "Read more…",
+		"error" : "Error!"
+	},
+
+	"form" : {
+		"login" : "Login",
+		"password" : "Password",
+		"password_confirm" : "Password confirm",
+		"name" : "Enter your name…",
+		"email" : "Enter your email address…",
+		"phone" : "Enter your phone…",
+		"subscribe" : "subscribe to updates",
+		"require" : "This field is required.",
+		"fail" : "Form send is fail!",
+		"complete" : "Form send is complete!"
+	},
+
+	"errors" : {
+		"authorisation" : "Incorrect authorisation data",
+		"login" : "Incorrect login",
+		"password" : "Incorrect password",
+		"password_confirm" : "Password and password confirm do not match",
+		"email" : "Incorrect email",
+		"phone" : "Incorrect phone number",
+		"form" : "This field is incorrect",
+		"captcha" : "Captca is incorrect",
+		"verification" : "Verification is failed"
+	}
+
+}

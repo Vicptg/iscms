@@ -1,0 +1,4 @@
+id,login,password,status,register,data,email,phone,birthday,lastvisit
+1549969549005126,lirasitemaster,$2y$10$dfV6Yp8RS35Sq9Yh3gCHyeCZkAmWzyptj.PjWsR0mVhSEfzpb6u76,100,,,lirasitemaster@yandex.ru,,,
+1549969569008193,admin,$2y$10$blgS4VJypGq4QMrkFFQaZ.Btnk9ushGDa1Sit43Pp4OMnR73g1a/q,100,,,admin@mail.com,,,
+1549969619001121,user,$2y$10$ObdUWuLuFP/4rXjVCvNj8efclRi730Xaz4Tl.TB52Y/Ko2jx76uNy,,,,user@mail.com,,,

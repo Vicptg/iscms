@@ -1,0 +1,11 @@
+{
+	"title" : "The Storyline",
+	"restore" : {
+		"login" : "Login",
+		"email" : "Email",
+		"password" : "Password",
+		"captcha" : "Enter code",
+		"description" : "To restore access, you must enter all the information that you specified during registration",
+		"button" : "Restore access"
+	}
+}

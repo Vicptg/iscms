@@ -1,0 +1,70 @@
+/* ********************** */
+/* admin panel style      */
+/* ********************** */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.panel {
+	margin-bottom: 20px;
+	padding: 10px;
+	background-color: #8ae;
+	color: #fff;
+	overflow: hidden;
+}
+
+.panel .nav {
+	list-style: none;
+	display: block;
+	transition: all 1s ease;
+    margin-left: 28px;
+}
+
+.panel .nav.collapsed {
+	transform: translateY(200%);
+}
+
+.panel .nav > li {
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 4px;
+	margin-left: 4px;
+	padding: 0;
+}
+
+.panel .nav > li > a,
+.panel .nav > li .link {
+	display: block;
+	padding: 4px 8px;
+	font-family: sans-serif;
+	font-size: 14px;
+	text-decoration: none;
+	border: 1px solid #ccc;
+	color: #fff;
+	background: #ccc;
+}
+.panel .nav > li:hover > a,
+.panel .nav > li:hover .link,
+.panel .nav > li > a:hover,
+.panel .nav > li .link:hover {
+	border-color: #fff;
+	color: #fff;
+	background: transparent;	
+}
+
+.panel .links .nav > li > a,
+.panel .links .nav > li .link {
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.panel .fa {
+	font-size: 24px;
+	float: left;
+}
+
+.inside {
+	padding: 0 40px;
+}

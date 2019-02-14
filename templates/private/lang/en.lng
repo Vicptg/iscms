@@ -1,0 +1,82 @@
+{
+	"modals" : {
+		"avatar" : {
+			"title" : "Load new avatar photo",
+			"description" : "You can upload an image in JPG, GIF or PNG format. The size should not exceed 4 MB.",
+			"errorext" : "Invalid file extension! Use .jpg, .jpeg, .png, .gif files.",
+			"errorsize" : "Invalid file size! Use no more than 4 MB file.",
+			"deleteconfirm" : "Are you sure you want to delete the current avatar?"
+		},
+		"project" : {
+			"title" : "Project settings",
+			"description" : "Here you can set or change the project settings. The project title is a required field. The description can be empty. Do not use tags and formatting - this will be removed. As an image, you can upload a file in JPG, GIF or PNG format, no larger than 4 MB.",
+			"input_title" : "Project title",
+			"input_description" : "Project description",
+			"input_image" : "Project image",
+			"resetimage" : "Delete project image",
+			"resetimagecomplete" : "The project will be without an image",
+			"deleteconfirm" : "Are you sure you want to delete this project?"
+		}
+	},
+	
+	"profile" : {
+		"profile" : "Profile",
+		"editprofile" : "Edit profile",
+		"login" : "Login",
+		"password" : "Password",
+		"avatar" : "Avatar",
+		"setavatar" : "Set avatar",
+		"name" : "Name and family name",
+		"birthday" : "Birthday",
+		"country" : "Country",
+		"city" : "City",
+		"address" : "Address",
+		"email" : "E-mail",
+		"phone" : "Phone no",
+		"website" : "Web-site",
+		"about" : "About me",
+		"lastenter" : "Last enter",
+		"language" : "Site language",
+		"socialnetworks" : "Social networks",
+		"social" : {
+			"facebook" : "Facebook",
+			"instagram" : "Instagram",
+			"vk" : "Vkontakte",
+			"twitter" : "Twitter",
+			"skype" : "Skype"
+		},
+		"change" : {
+			"verification" : "Verification",
+			"login" : "Change login",
+			"email" : "Change E-mail",
+			"phone" : "Change phone",
+			"password" : "Change password",
+			"delete" : "Delete account"
+		},
+		"default" : "default",
+		"noset" : "not set",
+		"nodata" : "not specified"
+	},
+	
+	"orders" : {
+		"title" : "Баланс счета",
+		"balance" : "Средства на балансе",
+		"currency" : "Валюта расчетов",
+		"lastenter" : "Последний ввод средств",
+		"lastpay" : "Последние расходы",
+		"plan" : "Тарифный план",
+		"datastart" : "Дата заказа",
+		"dataend" : "Дата окончания",
+		"pay" : {
+			"title" : "Пополнить баланс",
+			"description" : "Вы можете пополнить баланс на фиксированную сумму"
+		}
+	},
+	
+	"name_types" : {
+		"encrypt" : "encrypt",
+		"hide" : "hide",
+		"show" : "show",
+		"set" : "set another"
+	}
+}

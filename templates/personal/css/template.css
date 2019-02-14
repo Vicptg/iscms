@@ -1,0 +1,350 @@
+.main {
+	background: #eee;
+}
+
+.main .flex.column:first-child {
+	flex: 1 0 300px;
+	margin-left: 0px;
+}
+
+.main .flex.column {
+	flex: 1 1 100%;
+	margin-left: 20px;
+}
+
+.main .item {
+	position: relative;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	margin-top: 20px;
+	padding: 20px;
+	font-size: 13px;
+	max-width: 850px;
+}
+.main .item:last-child {
+	margin-bottom: 20px;
+}
+
+.item_title {
+	position: relative;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #e7e8ec;
+	overflow: hidden;
+}
+
+.item_name {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 400;
+}
+.item_manage {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 18px;
+	color: #828282;
+	cursor: pointer;
+}
+.item_manage .fa:hover {
+	color: #000;
+}
+
+.item_body {
+	margin: 0;
+}
+
+.item_row {
+	padding-top: 5px;
+}
+.item_row.separate {
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #e7e8ec;
+}
+
+.item_row_label,
+.item_row_value {
+	display: inline-block;
+	min-width: 200px;
+	color: #828282;
+	line-height: 150%;
+}
+.item_row_left {
+	flex: 1 1;
+	align-self: flex-start;
+}
+.item_row_right {
+	align-self: flex-end;
+	text-align: right;
+}
+
+.item .button {
+	display: inline-block;
+	padding: 8px 20px;
+	margin: 0 2px 0 0;
+	font-family: 'PT Sans', sans-serif; 
+	/*width: 100%;*/
+	font-size: 13px;
+	font-weight: 400;
+	cursor: pointer;
+	background-color: #2d9ed2;
+	border: 0;
+	border-radius: 2px;
+	color: #fff;
+}
+.item .button:hover {
+	background-color: #8f96a3;
+}
+
+/* My Projects */
+
+.item.project {
+    max-width: 100%;
+	padding-left: 150px;
+	margin-left: 10px;
+    margin-right: 10px;
+}
+.item.project.locked {
+	background: #ddd;
+	opacity: 0.75;
+}
+
+.item.project .item_image {
+	position: absolute;
+	display: block;
+	width: 110px;
+	left: 20px;
+	top: 20px;
+	bottom: 20px;
+	overflow: hidden;
+}
+.item.project.noimg {
+	padding-left: 20px;
+}
+.item.project.noimg .item_image {
+	display: none;
+}
+
+.item.project.half {
+	width: calc(50% - 22px);
+	display: inline-block;
+	vertical-align: top;
+}
+
+.item.project .item_row {
+	color: #828282;
+	line-height: 150%;
+}
+.item.project .item_description {
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: #828282;
+	line-height: 150%;
+}
+.item.project .item_row_label {
+	width: 64px;
+	min-width: 32px;
+}
+.item.project .item_row.buttons {
+	padding-top: 15px;
+}
+
+.item.addproject {
+	box-shadow: none;
+	background: transparent;
+	padding: 0;
+	margin-bottom: 20px;
+	margin-left: 10px;
+    margin-right: 10px;
+	width: 100%;
+}
+
+/* Edit Profile */
+
+.item.editprofile {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item.editprofile .item_row {
+	padding-top: 10px;
+}
+.item.editprofile .item_row_label {
+	text-align: right;
+}
+.item.editprofile .item_row.area .item_row_label {
+	vertical-align: top;
+}
+.item.editprofile .item_row_value {
+	margin: 0 20px;
+}
+
+.item.editprofile input,
+.item.editprofile select,
+.item.editprofile textarea {
+	width: 400px;
+	text-align: left;
+	padding: 4px 10px;
+	border: 1px solid #ccc;
+}
+.item.editprofile textarea {
+	height: 100px;
+	resize: none;
+}
+.item.editprofile form {
+}
+
+.item.editprofile .item_row.social .item_row_value {
+	width: 400px;
+	padding: 4px 10px;
+	border: 1px solid #ccc;
+}
+.item.editprofile .item_row.social input {
+	width: auto;
+	padding: 0;
+	border: none;
+}
+
+.item.verification {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.item.verification .item_row_label {
+	text-align: right;
+}
+.item.verification .item_row_value {
+	margin: 0 20px;
+}
+.item.verification input {
+	width: 280px;
+	padding: 4px 10px;
+	border: 1px solid #ccc;
+}
+.item.verification button {
+	padding: 7px 20px;
+	margin-left: 20px;
+}
+
+/* Avatar */
+
+.item.avatar {
+	overflow: hidden;
+}
+
+.set_avatar {
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.75);
+    text-align: center;
+    padding-top: 30px;
+    cursor: pointer;
+    color: #ffffff;
+	opacity: 0;
+	transition: all ease 0.25s;
+}
+.set_avatar:hover {
+    opacity: 1;
+}
+
+.item.modal-content .item_row {
+	text-align: center;
+}
+
+.item.modal-content form input[name="fileload"] {
+	margin: 20px auto;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+/* Datepicker */
+
+.ui-datepicker {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 15px;
+}
+
+.ui-datepicker .ui-datepicker-header .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-next {
+	display: none;
+}
+.ui-datepicker .ui-datepicker-header .ui-datepicker-month,
+.ui-datepicker .ui-datepicker-header .ui-datepicker-year {
+	padding: 5px 15px;
+    margin: 8px;
+}
+
+.ui-datepicker .ui-datepicker-calendar {
+	margin: 4px;
+    width: 100%;
+}
+.ui-datepicker .ui-datepicker-calendar th span,
+.ui-datepicker .ui-datepicker-calendar td .ui-state-default {
+    font-family: sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    display: block;
+    padding: 4px;
+    margin: 2px;
+    text-align: center;
+}
+.ui-datepicker .ui-datepicker-calendar td .ui-state-default {
+	background: #eee;
+}
+.ui-datepicker .ui-datepicker-calendar td .ui-state-default:hover {
+	background: #ccc;
+	color: #000;
+}
+
+/* Create project modal */
+
+#setproject .item.modal-content textarea {
+    height: 100px;
+    resize: none;
+}
+
+#setproject .item.modal-content .item_row_label,
+#setproject .item.modal-content .item_row_value {
+    display: block;
+	padding: 4px;
+}
+#setproject .item.modal-content input,
+#setproject .item.modal-content select,
+#setproject .item.modal-content textarea {
+    width: 400px;
+    text-align: left;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+}
+
+#setproject .item.modal-content [name="fileload"] {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

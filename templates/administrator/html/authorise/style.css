@@ -1,0 +1,46 @@
+body {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0;
+	margin: 0;
+}
+
+form#restore {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 25%;
+	width: 200px;
+	margin: auto;
+	overflow: hidden;
+}
+
+#restore .field {
+	width: 100%;
+	margin: 4px 0;
+	padding: 6px;
+	border: none;
+	background: #eee;
+}
+#restore .captcha {
+	width: 100%;
+	margin: 0;
+	margin-top: 10px;
+	padding: 0;
+}
+#restore .submit {
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 100%;
+	margin-top: 20px;
+}
+#restore p {
+	color: #999;
+	font-size: 11px;
+	font-family: sans-serif;
+	text-align: center;
+}

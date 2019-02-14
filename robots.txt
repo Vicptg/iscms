@@ -1,0 +1,20 @@
+# For more information about the robots.txt standard, see:
+# http://www.robotstxt.org/orig.html
+# For syntax checking, see:
+# http://tool.motoricerca.info/robots-checker.phtml
+
+User-agent: *
+Disallow: /administrator/
+Disallow: /articles/
+Disallow: /cache/
+Disallow: /includes/
+Disallow: /libraries/
+Disallow: /media/
+Disallow: /modules/
+Disallow: /templates/
+Disallow: /personal/
+Disallow: /private/
+Host: 0iscms.ru
+Crawl-delay: 10
+
+Sitemap: http://0iscms.ru/sitemap.xml
