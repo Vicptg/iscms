@@ -43,7 +43,7 @@ function error($code, $l = false){
 
 /* ФУНКЦИЯ ВЫЗОВА МОДУЛЯ */
 
-function module($arr, $this = false){
+function module($arr, $thison = false){
 	
 	global $lang;
 	global $template;
@@ -71,7 +71,7 @@ function module($arr, $this = false){
 		'param' => $arr[1],
 		'template' => $arr[2],
 		'path' => PATH_MODULES . DIRECTORY_SEPARATOR . $arr[0],
-		'this' => $this,
+		'this' => $thison,
 		'settings' => (object) array(),
 		'var' => array()
 	);
