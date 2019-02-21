@@ -1,10 +1,10 @@
 <?php defined('isCMS') or die; ?>
 <!DOCTYPE html>
-<html lang="<?= $template -> lang; ?>"<?= (in_array('autoseo', $template -> param)) ? ' prefix="og: http://ogp.me/ns#"' : ''; ?>>
+<html lang="<?= $template -> lang; ?>"<?= (in_array('autoseo', $template -> options)) ? ' prefix="og: http://ogp.me/ns#"' : ''; ?>>
 <head>
 	
 	<?php
-		if (in_array('inspect', $template -> param)) {
+		if (in_array('inspect', $template -> options)) {
 			require_once $template -> base -> item -> inspectstart;
 		}
 	?>

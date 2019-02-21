@@ -2,7 +2,7 @@
 
 <!-- OPENING SCRIPTS -->
 
-<?php if (in_array('baseset', $template -> param) && file_exists($template -> base -> php . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script.js')) : ?>
+<?php if (in_array('baseset', $template -> options) && file_exists($template -> base -> php . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'script.js')) : ?>
 	<script type="text/javascript" src="<?= $template -> base -> url; ?>/js/script.js"></script>
 <?php endif; ?>
 
@@ -26,7 +26,7 @@
 
 <!-- OPENING STYLES -->
 
-<?php if (in_array('baseset', $template -> param) && file_exists($template -> base -> php . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'style.css')) : ?>
+<?php if (in_array('baseset', $template -> options) && file_exists($template -> base -> php . DIRECTORY_SEPARATOR . 'css' . DIRECTORY_SEPARATOR . 'style.css')) : ?>
 	<link rel="stylesheet" rev="stylesheet" type="text/css" href="<?= $template -> base -> url; ?>/css/style.css" />
 <?php endif; ?>
 

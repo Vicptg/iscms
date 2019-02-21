@@ -1,6 +1,6 @@
 <?php defined('isCMS') or die;
 
-if (in_array('inspect', $template -> param)) {
+if (in_array('inspect', $template -> options)) {
 	
 	$loadingLog = '';
 	

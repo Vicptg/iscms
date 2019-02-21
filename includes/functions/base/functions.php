@@ -92,7 +92,7 @@ function module($arr, $thison = false){
 	$module -> settings = moduleSettings($module -> name, $module -> param, $arr[3]);
 	unset ($arr);
 	
-	if (in_array('inspect', $template -> param)) {
+	if (in_array('inspect', $template -> options)) {
 		global $loadingLog;
 		$loadingLog .= 'module ' . $module -> name . ' as ' . $module -> param . ' with ' . $module -> template . ' template ';
 	}

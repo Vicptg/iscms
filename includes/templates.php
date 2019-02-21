@@ -28,7 +28,7 @@
 		),
 		'administrator' => false,
 		'libraries' => array(),
-		'param' => array(),
+		'options' => array(),
 		'css' => array(),
 		'js' => array(),
 		'less' => array(),
@@ -133,7 +133,7 @@
 	
 	// здесь мы определяем язык
 	
-	if ($template -> router -> lang) {
+	if (!empty($template -> router -> lang) && is_string($template -> router -> lang)) {
 		
 		if ($template -> router -> lang === ROOT_LANG && ROOT_LANG !== 'auto') {
 			header("Location: " . $template -> curr -> path);
@@ -141,15 +141,11 @@
 		} else {
 			$template -> lang = $template -> router -> lang;
 			cookie('LANG', $template -> router -> lang);
-			/*
-			if (isset($_COOKIE['LANG'])) {
-				$_COOKIE['LANG'] = $template -> router -> lang;
-			} else {
-				setcookie('LANG', $template -> router -> lang);
-			}
-			*/
 		}
 		
+	}
+	if (isset($template -> router -> lang)) {
+		unset($template -> router -> lang);
 	}
 	
 	// здесь мы задаем базовые настройки для шаблонов
@@ -178,7 +174,7 @@
 	$settings = dbSelect('templates', $template -> name);
 	
 	$template -> libraries = (array) $settings -> libraries;
-	$template -> param = (array) $settings -> param;
+	$template -> options = (array) $settings -> options;
 	$template -> css = (array) $settings -> css;
 	$template -> js = (array) $settings -> js;
 	$template -> less = (array) $settings -> less;
@@ -190,7 +186,7 @@
 	
 	// здесь загружаем информацию о компьютере пользователя, если в параметрах шаблона есть свойство 'mobiledetect'
 	
-	if (in_array('mobiledetect', $template -> param)) {
+	if (in_array('mobiledetect', $template -> options)) {
 		
 		require_once PATH_INCLUDES . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'mobiledetect' . DIRECTORY_SEPARATOR . 'Mobile_Detect.php';
 		$mobiledetect = new Mobile_Detect;
@@ -215,7 +211,7 @@
 	$currlang = $template -> lang;
 	
 	if (
-		in_array('baseset', $template -> param)
+		in_array('baseset', $template -> options)
 	) {
 		$lang = (object) array_merge(
 			(array) dbUse('languages', 'select', 'lang', ['name' => $template -> lang, 'template' => 'base'], ['limit' => 1, 'json' => true, 'format' => false]),
@@ -231,7 +227,7 @@
 	);
 	
 	if (
-		in_array('dictionary', $template -> param) &&
+		in_array('dictionary', $template -> options) &&
 		isset($lang -> morph)
 	) {
 		$morph = (object) array_merge(
@@ -246,14 +242,14 @@
 	$dictionary = [[],[]];
 	
 	if (
-		in_array('baseset', $template -> param) &&
-		in_array('dictionary', $template -> param)
+		in_array('baseset', $template -> options) &&
+		in_array('dictionary', $template -> options)
 	) {
 		$dictionary = array_merge(
 			(array) dbUse('languages', 'select', 'dictionary', ['name' => $template -> lang, 'template' => 'base'], ['limit' => 1, 'json' => true, 'format' => true]),
 			(array) dbUse('languages', 'select', 'dictionary', ['name' => $template -> lang, 'template' => $template -> name], ['limit' => 1, 'json' => true, 'format' => true])
 		);
-	} elseif (in_array('dictionary', $template -> param)) {
+	} elseif (in_array('dictionary', $template -> options)) {
 		$dictionary = dbUse('languages', 'select', 'dictionary', ['name' => $template -> lang, 'template' => $template -> name], ['limit' => 1, 'json' => true, 'format' => true]);
 	}
 	
@@ -281,7 +277,7 @@
 	}
 	unset($settings);
 	
-	if (in_array('autoseo', $template -> param)) {
+	if (in_array('autoseo', $template -> options)) {
 		require_once PATH_INCLUDES . DIRECTORY_SEPARATOR . 'seoprocessor.php';
 	}
 	
@@ -303,8 +299,8 @@
 	//echo '<!-- memory before load template is ' , round(memory_get_peak_usage() / 1024, 2) , ' kb -->';
 	
 	if (
-		in_array('baseset', $template -> param) &&
-		!in_array('develop', $template -> param)
+		in_array('baseset', $template -> options) &&
+		!in_array('develop', $template -> options)
 	) {
 		require_once $template -> base -> item -> opening;
 		require_once PATH_TEMPLATES . DIRECTORY_SEPARATOR . $template -> name . DIRECTORY_SEPARATOR . 'template.php';

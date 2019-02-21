@@ -1,5 +1,5 @@
 <?php defined('isCMS') or die; ?>
-<?php if (in_array('baseset', $template -> param)) : ?>
+<?php if (in_array('baseset', $template -> options)) : ?>
 <?php
 	$baseless = [];
 	$lesspath = $template -> base -> php . DIRECTORY_SEPARATOR . 'less' . DIRECTORY_SEPARATOR;

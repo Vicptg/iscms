@@ -15,14 +15,17 @@
 		],
 		"WW" : [
 			"", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-		],
+		]
+	},
+	
+	"common" : {
 		"s" : "s",
 		"sec" : "sec",
 		"second" : "second",
 		"m" : "m",
 		"min" : "min",
 		"minute" : "minute",
-		"h" : "h",
+		"h" : "hr",
 		"hour" : "hour",
 		"d" : "d",
 		"day" : "day",
@@ -30,10 +33,32 @@
 		"week" : "week",
 		"mon" : "mon",
 		"month" : "month",
-		"y" : "y",
+		"y" : "yr",
 		"year" : "year",
 		"date" : "date",
-		"time" : "time"
+		"time" : "time",
+		
+		"page" : "page",
+		"p" : "p.",
+		"no" : "no",
+		
+		"address" : "address",
+		"ph" : "tel.",
+		"phone" : "phone",
+		"phonecode" : "phone code",
+		"postcode" : "post code",
+		"country" : "country",
+		"state" : "state",
+		"c" : "city",
+		"city" : "city",
+		"st" : "st.",
+		"street" : "street",
+		"ho" : "h.",
+		"home" : "home",
+		"fl" : "apt.",
+		"flat" : "flat",
+		"of" : "o.",
+		"office" : "office"
 	},
 	
 	"counter" : {
@@ -126,7 +151,9 @@
 		"return" : "Return",
 		"all" : "all",
 		"readmore" : "Read more…",
-		"error" : "Error!"
+		"error" : "Error!",
+		"mail" : "Contact",
+		"search" : "Search"
 	},
 
 	"form" : {

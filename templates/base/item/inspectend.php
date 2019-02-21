@@ -25,9 +25,9 @@
 			"this page was loaded in " + Math.round( ( <?= round($loadingStart - $_SERVER['REQUEST_TIME_FLOAT'], 3); ?> + Math.round(loadingPage - loadingStart) / 1000 ) * 1000 ) / 1000 + " sec\n" +
 			"... <?= round($loadingStart - $_SERVER['REQUEST_TIME_FLOAT'], 3); ?> sec [php timestamp js] " + (Math.round(loadingStart) / 1000) + " sec ...\n\n" +
 			"this page size is " + (Math.round($('html').html().length / 1024)) + " Kb" +
-			"<?php if (in_array('inspect', $template -> param)) { echo '\n\nisCMS version ' . isCMS . '\n\n' .
+			"<?php if (in_array('inspect', $template -> options)) { echo '\n\nisCMS version ' . isCMS . '\n\n' .
 				$loadingLog . '\n' .
-				dataarraytostring($template -> param, ' parameter is enable,\n') . ' parameter is enable\n\n' .
+				dataarraytostring($template -> options, ' option is enable,\n') . ' option is enable\n\n' .
 				'current site: ' . $template -> site . '\n' .
 				'current page: ' . (($template -> router -> page) ? $template -> router -> page : 'home') . '\n' .
 				'current folders: ' . ((count($template -> router -> folders)) ? dataarraytostring($template -> router -> folders, ', ') : 'none') . '\n' .

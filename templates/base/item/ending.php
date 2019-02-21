@@ -3,7 +3,7 @@
 <?php require_once $template -> base -> item -> frontend; ?> 
 
 <?php
-	if (in_array('inspect', $template -> param)) {
+	if (in_array('inspect', $template -> options)) {
 		require_once $template -> base -> item -> inspectend;
 	}
 ?>
