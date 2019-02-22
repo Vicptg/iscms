@@ -446,6 +446,10 @@ if (!function_exists('moduleMenuElements')) {
 			$element -> item = $item;
 		}
 		
+		if (empty($element -> data)) {
+			$element -> data = '';
+		}
+		
 		return $element;
 		
 	}
