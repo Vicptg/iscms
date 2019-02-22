@@ -46,9 +46,9 @@
 		}
 		
 		if ($module -> settings -> bootstrap) {
-			$module -> var['menu']['divbody']['id'] = 'navbar_';
+			$module -> var['menu']['divbody']['id'] = 'navbar_' . $module -> param;
 		} elseif (!isset($module -> var['menu']['nav'])) {
-			$module -> var['menu']['divbody']['id'] .= $module -> param;
+			$module -> var['menu']['divbody']['id'] = $module -> param;
 		}
 		
 		$module -> var['menu']['divbody'] = new htmlElement('div', $module -> var['menu']['divbody']['class'], $module -> var['menu']['divbody']['id']);
@@ -109,9 +109,9 @@
 		
 		//id
 		if ($module -> settings -> bootstrap) {
-			$module -> var['menu']['ul']['id'] .= 'navbar_';
+			$module -> var['menu']['ul']['id'] = 'navbar_' . $module -> param;
 		} elseif (!isset($module -> var['menu']['nav']) && !isset($module -> var['menu']['divbody'])) {
-			$module -> var['menu']['ul']['id'] .= $module -> param;
+			$module -> var['menu']['ul']['id'] = $module -> param;
 		}
 		
 		$module -> var['menu']['ul'] = new htmlElement($module -> var['menu']['ul']['name'], $module -> var['menu']['ul']['class'], $module -> var['menu']['ul']['id']);
