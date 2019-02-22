@@ -148,19 +148,23 @@ function moduleSettings($name, $param, $custom){
 		
 	}
 	
-	if ($settings -> default && count($settings -> default)) {
+	//if ($settings -> default && count($settings -> default)) {
+	if (is_object($settings -> default) && !empty($settings -> default)) {
 		$settings -> result = datamerge($settings -> result, $settings -> default);
 		unset($settings -> default);
 	}
-	if ($settings -> base && count($settings -> base)) {
+	//if ($settings -> base && count($settings -> base)) {
+	if (is_object($settings -> base) && !empty($settings -> base)) {
 		$settings -> result = datamerge($settings -> result, $settings -> base, 'replace');
 		unset($settings -> base);
 	}
-	if ($settings -> this && count($settings -> this)) {
+	//if ($settings -> this && count($settings -> this)) {
+	if (is_object($settings -> this) && !empty($settings -> this)) {
 		$settings -> result = datamerge($settings -> result, $settings -> this, 'replace');
 		unset($settings -> this);
 	}
-	if ($settings -> custom && count($settings -> custom)) {
+	//if ($settings -> custom && count($settings -> custom)) {
+	if (is_object($settings -> custom) && !empty($settings -> custom)) {
 		$settings -> result = datamerge($settings -> result, $settings -> custom, 'replace');
 		unset($settings -> custom);
 	}

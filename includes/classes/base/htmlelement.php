@@ -31,7 +31,8 @@ class htmlElement {
 	
 	function add($type = false, $s = false) {
 		
-		if (!$type || !$s || !count($s)) {
+		//if (!$type || !$s || !count($s)) {
+		if (empty($type) || empty($s)) {
 			return false;
 		}
 		

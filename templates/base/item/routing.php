@@ -2,7 +2,7 @@
 
 $template -> var['wrapper'] = $template -> curr -> php . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'wrapper';
 
-if (!count($template -> router -> folder) && !$template -> router -> page) {
+if (empty($template -> router -> folder)) {
 	$template -> var['wrapper'] .= DIRECTORY_SEPARATOR . 'home_';
 } else {
 	$template -> var['wrapper'] .= DIRECTORY_SEPARATOR . 'inner_';
@@ -14,10 +14,7 @@ if (file_exists($template -> var['wrapper'] . 'before.php')) {
 
 if (
 	file_exists($template -> curr -> page) &&
-	(
-		!isset($template -> router -> parameters -> article) ||
-		!$template -> router -> parameters -> article
-	)
+	empty($template -> router -> parameters -> article)
 ) {
 	include_once $template -> curr -> page;
 } elseif ($template -> router -> page && isset($template -> router -> parameters -> article)) {
