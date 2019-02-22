@@ -395,7 +395,7 @@ if (!function_exists('moduleMenuElements')) {
 			'type' => '',
 			'key' => '',
 			'item' => '',
-			'data' => ''
+			'data' => array()
 		);
 		
 		if (is_array($item)) {
