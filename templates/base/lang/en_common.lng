@@ -45,6 +45,7 @@
 		"address" : "address",
 		"ph" : "tel.",
 		"phone" : "phone",
+		"phonehotline" : "call the hotline",
 		"phonecode" : "phone code",
 		"postcode" : "post code",
 		"country" : "country",
