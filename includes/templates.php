@@ -99,6 +99,23 @@
 	}
 	unset($template -> router -> template);
 	
+	// здесь мы определяем язык
+	
+	if (!empty($template -> router -> lang) && is_string($template -> router -> lang)) {
+		
+		if ($template -> router -> lang === ROOT_LANG && ROOT_LANG !== 'auto') {
+			header("Location: " . (($template -> curr -> path) ? $template -> curr -> path : DIRECTORY_SEPARATOR));
+			exit;
+		} else {
+			$template -> lang = $template -> router -> lang;
+			cookie('LANG', $template -> router -> lang);
+		}
+		
+	}
+	if (isset($template -> router -> lang)) {
+		unset($template -> router -> lang);
+	}
+	
 	// обрабатываем полученные пути
 	
 	$template -> curr -> inner = PATH_TEMPLATES . DIRECTORY_SEPARATOR . $template -> name . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'inner';
@@ -129,23 +146,6 @@
 		)
 	) {
 		error('404', $template -> lang);
-	}
-	
-	// здесь мы определяем язык
-	
-	if (!empty($template -> router -> lang) && is_string($template -> router -> lang)) {
-		
-		if ($template -> router -> lang === ROOT_LANG && ROOT_LANG !== 'auto') {
-			header("Location: " . (($template -> curr -> path) ? $template -> curr -> path : DIRECTORY_SEPARATOR));
-			exit;
-		} else {
-			$template -> lang = $template -> router -> lang;
-			cookie('LANG', $template -> router -> lang);
-		}
-		
-	}
-	if (isset($template -> router -> lang)) {
-		unset($template -> router -> lang);
 	}
 	
 	// здесь мы задаем базовые настройки для шаблонов
