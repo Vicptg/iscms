@@ -328,7 +328,6 @@ if (!function_exists('moduleMenuPath')) {
 		// ну а фига там еще кучу лишних действий в шаблоне повторять,
 		// тем более, что эта функция один хрен вызывается в 'a href='
 		
-		
 		if ($path['type'] === 'nolink' || $path['type'] === 'group') {
 			$path['link'] = 'javascript:undefined;';
 			//'javascript:void(0);';
@@ -336,7 +335,9 @@ if (!function_exists('moduleMenuPath')) {
 			$path['link'] = '#';
 			//'#" onclick="return false'; 
 		} elseif ($path['type'] === 'hash') {
-			$path['link'] = $path['base'] . substr($path['menu'], 0, strrpos(substr($path['menu'], 0, -1), '/')) . '/#';
+			$path['menu'] = substr($path['menu'], 0, strrpos(substr($path['menu'], 0, -1), '/'));
+			if ($path['menu'] && substr($path['menu'], 0, -1) !== '/') { $path['menu'] .= '/'; }
+			$path['link'] = $path['base'] . $path['menu'] . '#';
 			$path['link'] .= (is_array($item)) ? $key : $item;
 		} elseif ($path['type'] === 'action') {
 			$path['link'] = '#';
