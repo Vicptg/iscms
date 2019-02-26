@@ -39,6 +39,8 @@ if (!isset($module -> settings -> captions)) {
 		
 	}
 	
+	unset($key, $item);
+	
 }
 
 datareplacelang($module -> settings -> captions);
@@ -48,6 +50,7 @@ foreach ($module -> settings -> captions as &$item) {
 		//echo $item . '<br>';
 	}
 }
+unset($item);
 
 unset($path);
 
