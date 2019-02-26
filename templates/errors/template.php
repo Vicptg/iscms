@@ -36,8 +36,14 @@ if (in_array((string) $error -> code, $error -> options -> statuses)) {
 }
 
 // задаем базовые значения объектов для использования в шаблоне
-$error -> description = trim(((array)$error -> data)[(string) $error -> code][$error -> lang]['description']);
-$error -> message = trim(((array)$error -> data)[(string) $error -> code][$error -> lang]['message']);
+
+$error -> description = (array)$error -> data;
+$error -> description = $error -> description[(string) $error -> code][$error -> lang]['description'];
+$error -> description = trim($error -> description);
+$error -> message = (array)$error -> data;
+$error -> message = $error -> message[(string) $error -> code][$error -> lang]['message'];
+$error -> message = trim($error -> message);
+
 $error -> support = $error -> options -> support[$error -> lang] . '<a href="mailto: ' . $error -> options -> mail . '?subject=' . $error -> name . '_' . $error -> code . '">' . $error -> options -> mail . '</a>';
 
 // производим замену содержимого текста
