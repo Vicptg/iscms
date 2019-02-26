@@ -262,7 +262,7 @@ $path -> current -> structure = $template -> structure;
 
 foreach ($path -> split as $key => $item) {
 	
-	if (count($path -> folders)) {
+	if (!empty($path -> folders)) {
 		
 		// если в массиве папок уже что-то есть,
 		// то мы берем последнее значение,
@@ -369,7 +369,7 @@ foreach ($path -> split as $key => $item) {
 		} elseif ($path -> structure[$item][1] === 'article') {
 			$path -> current -> params = true;
 			$path -> current -> article = true;
-		} elseif (count($path -> split)) {
+		} elseif (!empty($path -> split)) {
 			error('404', $template -> lang);
 		} else {
 			$path -> current -> params = false;
@@ -412,7 +412,7 @@ foreach ($path -> split as $key => $item) {
 // Это нужно, потому что в дальнейшем вся архитектура сайта
 // требует не пустое название страницы
 
-if (!$path -> page && count($path -> folders)) {
+if (!$path -> page && !empty($path -> folders)) {
 	$path -> page = array_pop($path -> folders);
 } elseif ($path -> page === 'index') {
 	$path -> page = array_pop($path -> folders);
@@ -464,7 +464,7 @@ if ($path -> current -> article) {
 // 7я проверка
 // формирование массива параметров
 
-if (count($path -> split) && $path -> current -> params === true) {
+if (!empty($path -> split) && $path -> current -> params === true) {
 	
 	if (count($path -> split) % 2) {
 		$path -> current -> item = dataclear(array_shift($path -> split), 'urldecode');

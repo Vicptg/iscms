@@ -136,7 +136,7 @@
 	if (!empty($template -> router -> lang) && is_string($template -> router -> lang)) {
 		
 		if ($template -> router -> lang === ROOT_LANG && ROOT_LANG !== 'auto') {
-			header("Location: " . $template -> curr -> path);
+			header("Location: " . (($template -> curr -> path) ? $template -> curr -> path : DIRECTORY_SEPARATOR));
 			exit;
 		} else {
 			$template -> lang = $template -> router -> lang;
