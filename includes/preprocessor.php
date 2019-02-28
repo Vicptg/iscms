@@ -3,15 +3,17 @@ defined('isCMS') or die;
 
 define('isQUERY', 1);
 
-$query = (object) array('name' => '', 'status' => '', 'hash' => '', 'data' => '', 'open' => '', 'method' => strtolower($_SERVER['REQUEST_METHOD']), 'errors' => [], 'var' => []);
+$query = (object) array('name' => '', 'param' => '', 'status' => '', 'hash' => '', 'data' => '', 'open' => '', 'method' => strtolower($_SERVER['REQUEST_METHOD']), 'errors' => [], 'var' => []);
 
 if ($query -> method === 'post') {
 	$query -> name = ($_POST['query']) ? dataclear($_POST['query'], 'simpleurl') : '';
+	$query -> param = ($_POST['param']) ? dataclear($_POST['param'], '') : '';
 	$query -> status = ($_POST['status']) ? dataclear($_POST['status'], 'simpleurl') : '';
 	$query -> hash = ($_POST['hash']) ? dataclear($_POST['hash'], '') : '';
 	$query -> data = ($_POST['data']) ? $_POST['data'] : '';
 } else {
 	$query -> name = ($_GET['query']) ? dataclear($_GET['query'], 'simpleurl') : '';
+	$query -> param = ($_GET['param']) ? dataclear($_GET['param'], '') : '';
 	$query -> status = ($_GET['status']) ? dataclear($_GET['status'], 'simpleurl') : '';
 	$query -> hash = ($_GET['hash']) ? dataclear($_GET['hash'], '') : '';
 	$query -> data = ($_GET['data']) ? $_GET['data'] : '';	

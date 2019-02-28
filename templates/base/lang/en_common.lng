@@ -59,7 +59,11 @@
 		"fl" : "apt.",
 		"flat" : "flat",
 		"of" : "o.",
-		"office" : "office"
+		"office" : "office",
+		
+		"cookie" : "This website use cookies to enhance your user experience. By continuing to use this site you are giving your consent for us to set cookies.",
+		"rights" : "All rights to the content on the site are protected in law of the Russian Federation, including copyright and related rights.",
+		"partners" : "Our partners"
 	},
 	
 	"counter" : {
@@ -138,6 +142,7 @@
 		"edit" : "Change",
 		"prolong" : "Prolong",
 		"confirm" : "Confirm",
+		"agree" : "Agree",
 		"send" : "Send",
 		"submit" : "Submit",
 		"set" : "Set",
@@ -151,7 +156,7 @@
 		"back" : "back",
 		"return" : "Return",
 		"all" : "all",
-		"readmore" : "Read more…",
+		"readmore" : "Read more",
 		"error" : "Error!",
 		"mail" : "Contact",
 		"search" : "Search"

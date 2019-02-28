@@ -112,7 +112,7 @@
 	endif;
 ?>
 
-<?php if (count($template -> router -> parameters) > 1 || strpos($_SERVER['REQUEST_URI'], '.php') !== false || strpos($_SERVER['REQUEST_URI'], '?') !== false) : ?>
+<?php if (!empty($template -> router -> parameters) || strpos($_SERVER['REQUEST_URI'], '.php') !== false || strpos($_SERVER['REQUEST_URI'], '?') !== false) : ?>
 	<meta name="referrer" content="origin">
 	<link rel="canonical" href="<?php
 		echo $template -> url;

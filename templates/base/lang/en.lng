@@ -16,8 +16,6 @@
 		"version" : "Version",
 		"created" : "Created by",
 		"company" : "&copy; 2017, LLC &laquo;Company&raquo;",
-		"description" : "All rights reserved",
-		"partners" : "Our partners",
 		
 		"email" : [""],
 		"phone" : [""],
