@@ -17,7 +17,15 @@ if (
 */
 
 $module -> data = $query -> data;
-if (count($query -> errors)) { $module -> data -> errors = $query -> errors; }
+
+if ($query -> status !== 'complete') {
+	$query -> errors['fail'] = true;
+	// если сделать $query -> errors[] = 'fail';, то после следующего условия 'fail' запишется почему-то два раза
+}
+
+if (!empty($query -> errors)) {
+	$module -> data = datamerge($module -> data, ['errors' => $query -> errors]);
+}
 
 $module -> var['name'] = $query -> name;
 

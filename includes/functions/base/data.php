@@ -392,10 +392,10 @@ function datamerge($arrTarget, $arrFill, $convert = false) {
 	if (
 		!is_object($arrTarget) &&
 		!is_array($arrTarget) &&
-		!count($arrTarget) &&
+		empty($arrTarget) &&
 		!is_object($arrFill) &&
 		!is_array($arrFill) &&
-		!count($arrFill)
+		empty($arrFill)
 	) {
 		return false;
 	}

@@ -399,7 +399,12 @@ function messageSend($arr, $subject, $settings, $message, $errors) {
 	if (isset($result['error'])) {
 		$arr = dataloadcsv($errors);
 		
-		if (!$arr -> data) {
+		if (!is_object($arr)) {
+			$arr = (object) array();
+		}
+		
+		if (empty($arr -> data)) {
+			$arr = datamerge($arr, (object) array('data' => array()));
 			$arr -> data[] = [
 				'date',
 				'error status',
@@ -410,7 +415,8 @@ function messageSend($arr, $subject, $settings, $message, $errors) {
 		}
 		
 		$arr -> data[] = [
-			date('d.m.Y H:i:s (P') . ' GMT)',
+			//date('d.m.Y H:i:s (P') . ' GMT)',
+			datadatetime('','{dd}.{mm}.{yy} {hour}:{min}:{sec}'),
 			json_encode($result['error']),
 			$_SERVER['REMOTE_ADDR'],
 			$_SERVER['HTTP_USER_AGENT'],

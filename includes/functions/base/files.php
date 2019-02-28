@@ -184,7 +184,7 @@ function dataloadcsv($datafile, $datasettings = false){
 		$data -> settings = json_decode($datasettings);
 	}
 	
-	if (count($data -> settings)) {
+	if (!empty($data -> settings)) {
 		if (isset($data -> settings -> header)) {
 			$data -> settings -> header --;
 		}

@@ -1,24 +1,33 @@
 ﻿<?php defined('isCMS') or die; ?>
 
-<form id="<?= $module -> param; ?>" class="<?= $module -> param; ?>_form" method="<?= (!empty($module -> settings -> get)) ? 'get' : 'post'; ?>">
+<form
+	id="<?= $module -> param; ?>"
+	class="
+		form
+		form_<?= $module -> param; ?>
+	"
+	method="<?= (!empty($module -> settings -> get)) ? 'get' : 'post'; ?>"
+>
 	
 	<input type="hidden" name="query" value="<?= $module -> settings -> type; ?>">
+	<input type="hidden" name="param" value="<?= $module -> param; ?>">
 	<input type="hidden" name="hash" value="<?= datacrypt(time()); ?>">
 	<?php if ($module -> settings -> type === 'authorisation') : ?><input type="hidden" name="data[onlyuser]" value="1"><?php endif; ?>
+	<?php if ($module -> settings -> type === 'form') : ?><input type="text" name="check" value="" style="display:none!important;"><?php endif; ?>
 	
 	<?php foreach ($module -> settings -> form as $item) : ?>
 		
 		<?php $module -> var['verification'] .= '"' . $item -> name . '":"' . $item -> verify . '",'; ?>
 		
 		<div class="
-			<?= $module -> param; ?>_form_group
+			form_<?= $module -> param; ?>_group
 			<?= (!empty($module -> settings -> bootstrap)) ? 'form-group' : ''; ?>
-			<?= (!empty($item -> required) || !empty($module -> settings -> required)) ? $module -> param . '_form_group__required' : ''; ?>
+			<?= (!empty($item -> required) || !empty($module -> settings -> required)) ? 'form_' . $module -> param . '_group__required' : ''; ?>
 		">
 			<?php if (!empty($item -> label) || !empty($module -> settings -> bootstrap)) : ?>
 			<label
-				for="<?= $module -> param . '_form_field__' . $item -> name; ?>"
-				class="<?= $module -> param; ?>_form_label"
+				for="<?= 'form_' . $module -> param . '_field__' . $item -> name; ?>"
+				class="form_<?= $module -> param; ?>_label"
 			>
 				<?= (!empty($item -> label)) ? datalang($item -> label, 'names') : datalang($item -> name, 'form'); ?>
 			</label>
@@ -38,15 +47,15 @@
 				echo 'name="data[' . $item -> name . ']" ';
 				
 				if (!empty($item -> label) || !empty($module -> settings -> bootstrap)) {
-					echo 'id="' . $module -> param . '_form_field__' . $item -> name . '" ';
+					echo 'id="form_' . $module -> param . '_field__' . $item -> name . '" ';
 				}
 				
 				echo 'class="' .
-					$module -> param . '_form_field ' .
-					$module -> param . '_form_field__' . $item -> name;
+					'form_' . $module -> param . '_field ' .
+					'form_' . $module -> param . '_field__' . $item -> name;
 				
 				if (!empty($item -> required) || !empty($module -> settings -> required)) {
-					echo ' ' . $module -> param . '_form_field__required';
+					echo ' form_' . $module -> param . '_field__required';
 				}
 				if (!empty($module -> settings -> bootstrap)) {
 					echo ' form-control';
@@ -63,9 +72,10 @@
 						(!empty($item -> text)) ? datalang($item -> text, 'action') : datalang($item -> name, 'form') ,
 						'</button>';
 				} elseif ($item -> type === 'textarea') {
-					echo 'value="' , ($module -> settings -> type === $module -> var['name']) ? htmlentities(dataobject($module -> data, $item -> name)) : '' , '" ' ,
-						'placeholder="' , (!empty($item -> text)) ? datalang($item -> text, 'form') : datalang($item -> name, 'form') , '"' ,
-						'></textarea>';
+					echo 'placeholder="' , (!empty($item -> text)) ? datalang($item -> text, 'form') : datalang($item -> name, 'form') , '"' ,
+						'>' ,
+						($module -> settings -> type === $module -> var['name']) ? htmlentities(dataobject($module -> data, $item -> name)) : '' ,
+						'</textarea>';
 				} else {
 					echo 'value="' , ($module -> settings -> type === $module -> var['name']) ? htmlentities(dataobject($module -> data, $item -> name)) : '' , '" ' ,
 						'placeholder="' , (!empty($item -> text)) ? datalang($item -> text, 'form') : datalang($item -> name, 'form') , '"' ,
@@ -77,7 +87,7 @@
 			
 			<?php if (!empty($item -> description)) : ?>
 				<span class="
-					<?= $module -> param; ?>_form_description
+					form_<?= $module -> param; ?>_description
 					<?= (!empty($module -> settings -> bootstrap)) ? 'form-text text-muted' : ''; ?>
 				">
 					<?= datalang($item -> description, 'names'); ?>
@@ -90,16 +100,11 @@
 	
 	<input type="hidden" name="data[verification]" value="<?= htmlentities('{' . substr($module -> var['verification'], 0, -1) . '}'); ?>">
 	
-	<?php if (!empty($module -> settings -> errors)) : ?>
-		<div class="<?= $module -> param; ?>_form_error">
+	<?php if (!empty($module -> settings -> errors) && !empty($module -> data['errors'])) : ?>
+		<div class="form_<?= $module -> param; ?>_error">
 			<?php
-				if (
-					isset($module -> data -> errors) &&
-					count($module -> data -> errors)
-				) {
-					foreach ($module -> data -> errors as $key => $item) {
-						echo '<span>' . $lang -> errors -> $key . '</span>';
-					}
+				foreach ($module -> data['errors'] as $key => $item) {
+					echo '<span>' , (!empty($lang -> errors -> $key)) ? $lang -> errors -> $key : $item , '</span>';
 				}
 			?>
 		</div>
@@ -112,7 +117,7 @@
 	<?php endif; ?>
 	
 	<?php if (!empty($module -> settings -> submit)) : ?>
-		<button type="submit" class="<?= $module -> param; ?>_form_submit"><?= datalang((is_string($module -> settings -> submit) ? $module -> settings -> submit : 'submit'), 'action'); ?></button>
+		<button type="submit" class="form_<?= $module -> param; ?>_submit"><?= datalang((is_string($module -> settings -> submit) ? $module -> settings -> submit : 'submit'), 'action'); ?></button>
 	<?php endif; ?>
 	
 </form>

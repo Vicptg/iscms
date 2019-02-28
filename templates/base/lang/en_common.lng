@@ -184,7 +184,9 @@
 		"phone" : "Incorrect phone number",
 		"form" : "This field is incorrect",
 		"captcha" : "Captca is incorrect",
-		"verification" : "Verification is failed"
+		"verification" : "Verification is failed",
+		"fail" : "Error while submitting form. Your data has not been sent",
+		"complete" : "Your data was successfully received"
 	}
 
 }
