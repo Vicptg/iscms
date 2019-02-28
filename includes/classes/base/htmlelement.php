@@ -27,61 +27,109 @@ class htmlElement {
 	*  <div class="style1 s2 s3" id="new" data-id="1" data-name="my" data-target="#mod"><p class="basta">45635062450598yer!!!</p></div>
 	*
 	*  Вот такой вот маленький и очень полезный класс!!!
+	*  
+	*  UPD: теперь можно создавать элементы img и a со ссылками, которые чистятся автоматом, даже если туда подставить гадость, и при этом ведут только внутрь этого сайта
 	*/
 	
-	function add($type = false, $s = false) {
+	function add($type = false, $data = false) {
 		
-		//if (!$type || !$s || !count($s)) {
-		if (empty($type) || empty($s)) {
+		if (empty($type) || empty($data)) {
 			return false;
 		}
 		
-		echo ' ' . $type . '="';
+		$this -> print .= ' ' . $type . '="';
 		
-		if (!is_array($s)) {
-			echo $s;
-		} elseif (count($s) == 1) {
-			echo $s[0];
+		if (!is_array($data)) {
+			$this -> print .= $data;
+		} elseif (count($data) == 1) {
+			$this -> print .= $data[0];
 		} else {
-			echo array_shift($s);
-			foreach ($s as $i) {
-				echo ' ' . $i;
+			$this -> print .= array_shift($data);
+			foreach ($data as $i) {
+				$this -> print .= ' ' . $i;
 			}
 		}
 		
-		echo '"';
+		$this -> print .= '"';
 		
+		unset($type, $data);
 	}
 	
 	function data($type = false, $data = false) {
 		
-		if (!$type || !$data || !is_array($data) || !count($data)) {
+		if (!$type || empty($data) || !is_array($data)) {
 			return false;
 		}
 		
 		foreach ($data as $k => $i) {
-			echo ' ' . $type . '-' . $k . '="' . $i . '"';
+			$this -> print .= ' ' . $type . '-' . $k . '="' . $i . '"';
 		}
 		
+		unset($type, $data);
+	}
+	
+	function link($type = false, $data = false) {
+		
+		if (!$type || !$data) {
+			return false;
+		}
+		
+		$data = trim($data);
+		$data = preg_replace('/^https?:/', '', $data);
+		$data = preg_replace('/^\/\//', '', $data);
+		$data = preg_replace('/^[\w\.]+?\.[\w]+?\//', '/', $data);
+		
+		if ($type === 'img') {
+			$this -> print .= ' src';
+		} else {
+			$this -> print .= ' href';
+		}
+		$this -> print .= '="' . dataclear($data, 'simpleurl') . '"';
+		
+		unset($data);
+	}
+	
+	function styles($data = false) {
+		
+		if (empty($data) || !is_array($data)) {
+			return false;
+		}
+		
+		$this -> print .= ' style="';
+		
+		foreach ($data as $k => $i) {
+			$this -> print .= $k . ': ' . $i . '; ';
+		}
+		
+		$this -> print .= '"';
+		
+		unset($data);
 	}
 	
 	// это - конструктор класса, т.е. функция, которая запускается при создании экземпляра класса
 	// как раз то, что нам нужно, чтобы создавать элементы
-	function __construct($tag = false, $class = false, $id = false, $data = false, $area = false) {
+	function __construct($tag = false, $class = false, $id = false, $data = false, $area = false, $styles = false, $link = false) {
 		
-		$allowtags = ['div', 'p', 'span', 'nav', 'ul', 'li', 'i'];
+		$allowtags = ['section', 'div', 'p', 'span', 'nav', 'ul', 'li', 'i', 'a', 'img'];
 		
 		if (!$tag || !in_array($tag, $allowtags)) {
 			return false;
 		}
 		
 		$this -> tag = $tag;
-		echo '<' . $tag;
+		
+		$this -> print = '<' . $tag; //echo '<' . $tag;
+		
+		self::link($tag, $link);
 		self::add('class', $class);
 		self::add('id', $id);
 		self::data('data', $data);
 		self::data('area', $area);
-		echo '>';
+		self::styles($styles);
+		
+		$this -> print .= '>';
+		
+		echo $this -> print;
 		
 	}
 	
@@ -91,7 +139,10 @@ class htmlElement {
 			return false;
 		}
 		
-		echo '</' . $this -> tag . '>';
+		if ($this -> tag !== 'img') {
+			echo '</' . $this -> tag . '>';
+		}
+		
 		$this -> tag = null;
 	}
 		
