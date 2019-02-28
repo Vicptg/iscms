@@ -292,6 +292,8 @@ function messageSend($arr, $subject, $settings, $message, $errors) {
 			}
 		}
 		
+		if (empty($arr -> id)) { $arr -> id = ROOT_EMAIL; }
+		
 		if ( (isset($_GET['check']) || isset($_POST['check'])) && !$_GET['check'] && !$_POST['check'] ) {
 			$result = mail($arr -> id, $subject, $message, $headers);
 		}
@@ -308,6 +310,8 @@ function messageSend($arr, $subject, $settings, $message, $errors) {
 		$headers .= "X-Mailer: PHP/" . phpversion();
 		
 		$message = $message;
+		
+		if (empty($arr -> id)) { $arr -> id = ROOT_EMAIL; }
 		
 		if ( (isset($_GET['check']) || isset($_POST['check'])) && !$_GET['check'] && !$_POST['check'] ) {
 			$result = mail($arr -> id, $subject, $message, $headers);
