@@ -26,13 +26,15 @@ if (empty($module -> settings)) {
 // теперь начинаем эти данные песочить
 // проверка на валидность
 
+if (empty($module -> settings -> redirect) || empty($query -> status)) :
+
 $query -> data = (array) $query -> data;
 
 foreach($module -> settings -> form as $item) {
 	
 	$query -> data[$item -> name] = trim($query -> data[$item -> name]);
 	
-	if (!datavalidation($query -> data[$item -> name], $item -> verify)) {
+	if (!empty($item -> verify) && !datavalidation($query -> data[$item -> name], $item -> verify)) {
 		$query -> errors[] = $item -> name;
 	} else {
 		/*
@@ -115,10 +117,18 @@ if (!empty($module -> settings -> log)) {
 // таким образом, при повторной загрузке, форма получит старые данные, а пользователю не придется вводить их заново
 // можно было бы принять данные и когда все хорошо, но тогда их можно будет перехватить - это раз, и ссылка получится огромной - это два
 
+//print_r($query);
+$module -> base -> path = ($_SERVER['REDIRECT_URL']) ? $_SERVER['REDIRECT_URL'] : '/';
+
+if (!empty($module -> settings -> redirect)) {
+	$module -> base -> path .= '?query=' . $query -> name . '&param=' . $query -> param . '&status=' . $query -> status . '&hash=' . datacrypt(time());
+}
+
 if ($query -> status === 'complete') {
-	header("Location: " . $_SERVER['REDIRECT_URL']);
+	header("Location: " . $module -> base -> path);
 	exit;
 }
 
+endif;
 
 ?>

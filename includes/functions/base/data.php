@@ -129,8 +129,8 @@ function datavalidation($data, $type) {
 	
 	if (
 		!$data ||
-		($ext && mb_strlen($data) < 6) ||
-		(!$ext && strlen($data) < 6)
+		($type !== 'numeric' && $type !== 'datetime' && $ext && mb_strlen($data) < 6) ||
+		($type !== 'numeric' && $type !== 'datetime' && !$ext && strlen($data) < 6)
 	) {
 		return false;
 	}
