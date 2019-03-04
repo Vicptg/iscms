@@ -103,7 +103,7 @@ function dbUse($db, $query, $array = false, $where = false, $options = false) {
 			'key' => (isset($options['key'])) ? $options['key'] : false,
 		],
 		'var' => array(),
-		'result' => ''
+		'result' => array()
 	];
 	
 	unset($query, $array, $where, $options);
@@ -127,7 +127,7 @@ function dbUse($db, $query, $array = false, $where = false, $options = false) {
 			$db -> result = dbUse($db -> name, 'select', $db -> array[0]);
 			if (
 				is_array($db -> result) &&
-				count($db -> result)
+				!empty($db -> result)
 			) {
 				foreach ($db -> result as $k => $i) {
 					if (datacrypt($i[$db -> array[0]], 1) !== datacrypt($db -> where['name'], 1)) {
@@ -218,7 +218,7 @@ function dbUse($db, $query, $array = false, $where = false, $options = false) {
 				
 				$file = array_combine($keys, $file);
 				
-				if (count($db -> where) && $db -> options['crypt']) {
+				if (!empty($db -> where) && $db -> options['crypt']) {
 					foreach(array_flip($db -> where) as $item) {
 						$file[$item] = datacrypt($file[$item], 1);
 					}
@@ -261,7 +261,7 @@ function dbUse($db, $query, $array = false, $where = false, $options = false) {
 					break;
 				}
 				
-				if ($db -> options['first'] && is_array($db -> result)) {
+				if ($db -> options['first'] && is_array($db -> result) && !empty($db -> result)) {
 					$db -> result = array_shift($db -> result);
 					break;
 				}

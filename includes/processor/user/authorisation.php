@@ -15,13 +15,14 @@
 	) {
 		
 		$user = dbUse('users', 'select', ['id', 'password', 'status'], ['login' => $query -> data -> login], ['first' => true]);
-		if (!$user) {
+		
+		if (empty($user)) {
 			$user = dbUse('users', 'select', ['id', 'password', 'status'], ['login' => $query -> data -> login], ['first' => true, 'crypt' => true]);
 		}
 		
 		if (
 			is_array($user) &&
-			count($user) &&
+			!empty($user) &&
 			password_verify($query -> data -> password, $user['password'])
 		) {
 			
