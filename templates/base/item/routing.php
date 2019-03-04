@@ -1,8 +1,14 @@
 <?php defined('isCMS') or die;
 
-$template -> var['wrapper'] = $template -> curr -> php . DIRECTORY_SEPARATOR . 'html' . DIRECTORY_SEPARATOR . 'wrapper';
+$template -> var['wrapper'] = $template -> curr -> html . DIRECTORY_SEPARATOR . 'wrapper';
 
-if (empty($template -> router -> folder)) {
+if (
+	empty($template -> router -> folder) &&
+	(
+		empty($template -> router -> page) ||
+		$template -> router -> page === 'home'
+	)
+) {
 	$template -> var['wrapper'] .= DIRECTORY_SEPARATOR . 'home_';
 } else {
 	$template -> var['wrapper'] .= DIRECTORY_SEPARATOR . 'inner_';
