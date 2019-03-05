@@ -1,7 +1,8 @@
 <?php
-define('isCMS', '0.3');
+define('isCMS', '0.4');
 define('CMS_MINIMUM_PHP', '5.6.0');
 define('PATH_BASE', __DIR__);
+//define('PATH_BASE', $_SERVER['DOCUMENT_ROOT']);
 
 // Подключаем файл конфигурации
 

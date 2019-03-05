@@ -37,19 +37,24 @@ php_value session.name "SID"
 #php_value error_reporting E_ALL & E_STRICT
 #php_value display_errors 1
 
-# SEF settings as friendly URL
-# настройки для работы SEF
-
+# enable rewrite engine
+# включение правил перенаправления
 RewriteEngine on
 
-RewriteCond %{SCRIPT_FILENAME} !-f
-RewriteCond %{SCRIPT_FILENAME} !-d
+# redirecting from with www to without www
+# перенаправление с www на без www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 
-RewriteRule ^(.*)$ index.php/$1
+# SEF settings as friendly URL
+# настройки для работы SEF
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !index.php$
+RewriteRule ^(.*)$ index.php [L]
 
 # do not allow to file requests except index.php
 # запрет на вызов файлов кроме index.php
-
 <FilesMatch "\.php$">
     Order Allow,Deny
     Deny from all
