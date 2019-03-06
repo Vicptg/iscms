@@ -126,6 +126,9 @@
 	
 	// ITEM/SUBMENU
 	
+	reset($module -> data);
+	$firstkey = key($module -> data);
+	
 	foreach ($module -> data as $key => $item) {
 		$element = moduleMenuElements($key, $item, $module -> settings -> nosubmenu);
 		
@@ -141,6 +144,8 @@
 		}
 		
 	}
+	
+	unset($firstkey);
 	
 	// AFTERITEMS
 	

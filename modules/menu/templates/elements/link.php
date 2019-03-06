@@ -11,6 +11,15 @@ if ($type === 'item') {
 	$target = $key;
 }
 
+if (
+	$key &&
+	$firstkey &&
+	$key !== $firstkey &&
+	!empty($module -> settings -> separator)
+) {
+	require 'separator.php';
+}
+
 require 'link_open.php';
 
 ?>
