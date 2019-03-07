@@ -5,9 +5,9 @@
 <?php
 	
 	if (
-		isset($module -> settings -> filter -> options) &&
+		!empty($module -> settings -> filter -> options) &&
 		!empty($module -> settings -> filter -> options -> pages) &&
-		count($module -> var['filter']) &&
+		!empty($module -> var['filter']) &&
 		isset($module -> var['filter_items']) &&
 		is_numeric($module -> var['filter_items']) &&
 		$module -> var['filter_items']

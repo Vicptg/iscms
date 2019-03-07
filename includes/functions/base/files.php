@@ -224,7 +224,7 @@ function dataloadcsv($datafile, $datasettings = false){
 				$row = $file[ array_search($data -> settings -> alias, $keys) ];
 			}
 			
-			$num = count($file);
+			$num = (!empty($file)) ? count($file) : 0;
 			
 			for ($c = 0; $c < $num; $c++) {
 				if (isset($data -> settings -> keys) && is_array($data -> settings -> keys)) {

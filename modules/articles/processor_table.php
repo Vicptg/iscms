@@ -42,9 +42,8 @@ foreach($module -> var['table'] -> data as $key => $item) {
 	// разбираем поля, заданные в настройках, по типу
 	
 	if (
-		isset($module -> settings -> fields) &&
-		is_object($module -> settings -> fields) &&
-		count($module -> settings -> fields)
+		!empty($module -> settings -> fields) &&
+		is_object($module -> settings -> fields)
 	) {
 		foreach ($module -> settings -> fields as $field_key => $field) {
 			if (
@@ -349,9 +348,8 @@ foreach($module -> var['table'] -> data as $key => $item) {
 	// в этих полях мы формируем фильтр для последующей сортировки материалов
 	
 	if (
-		isset($module -> settings -> filter) &&
-		isset($module -> settings -> filter -> fields) &&
-		count($module -> settings -> filter -> fields)
+		!empty($module -> settings -> filter) &&
+		!empty($module -> settings -> filter -> fields)
 	) {
 		foreach ($module -> settings -> filter -> fields as $filter_key => $filter_type) {
 			if (array_key_exists($filter_key, $item)) {

@@ -50,9 +50,8 @@ if (isset($module -> var['filter'] -> page)) {
 //print_r($module -> var['filter']);
 
 if (
-	isset($module -> var['filter']) &&
-	is_object($module -> var['filter']) &&
-	count($module -> var['filter'])
+	!empty($module -> var['filter']) &&
+	is_object($module -> var['filter'])
 ) {
 	foreach ($module -> data as $key => $item) {
 		//print_r($item[$filter_key]);
@@ -219,7 +218,7 @@ if (
 	}
 }
 
-$module -> var['filter_count'] = count($module -> data);
+$module -> var['filter_count'] = (!empty($module -> data)) ? count($module -> data) : 0;
 
 if (
 	!empty($module -> var['filter_items']) &&
