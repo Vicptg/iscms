@@ -17,10 +17,10 @@ if (is_string($module -> settings -> marks)) {
 			$item -> image = createmapmark($item -> image);
 		}
 		if (
-			( isset($item -> hint) && count($item -> hint) ) ||
-			( isset($item -> header) && count($item -> header) ) ||
-			( isset($item -> content) && count($item -> content) ) ||
-			( isset($item -> footer) && count($item -> footer) )
+			!empty($item -> hint) ||
+			!empty($item -> header) ||
+			!empty($item -> content) ||
+			!empty($item -> footer)
 		) {
 			datareplacelang($item);
 		}
