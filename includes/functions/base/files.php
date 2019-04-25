@@ -124,7 +124,10 @@ function dataloadjson($data, $true = false){
 		$data = dataclear($data, 'tags tospaces');
 	}
 	
-	$data = preg_replace('/\r\n/', '', $data);
+	$data = preg_replace('/\s*\/\*.*?\*\/.*/', '', $data);
+	$data = preg_replace('/([^\:\"\'])\s*?\/\/.*?([$\r\n])/', '$1$2', $data);
+	$data = preg_replace('/\t/', '', $data);
+	$data = preg_replace('/\r\n|\r|\n/', '', $data);
 	
 	$data = dataclear($data, '');
 	
@@ -224,7 +227,7 @@ function dataloadcsv($datafile, $datasettings = false){
 				$row = $file[ array_search($data -> settings -> alias, $keys) ];
 			}
 			
-			$num = (!empty($file)) ? count($file) : 0;
+			$num = count($file);
 			
 			for ($c = 0; $c < $num; $c++) {
 				if (isset($data -> settings -> keys) && is_array($data -> settings -> keys)) {
